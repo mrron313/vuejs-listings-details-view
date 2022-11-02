@@ -1,6 +1,6 @@
 <template>
   <a-col :span="4" :order="1">
-    <a-card hoverable style="width: 240px">
+    <a-card hoverable style="width: 240px" @click="goToDetails(item.id)">
       <template #cover>
         <img alt="example" :src="item.img" />
       </template>
@@ -12,9 +12,15 @@
 </template>
 
 <script>
+
   export default {
     props: {
       item: {}
     },
+    methods: {
+      goToDetails(id) {
+        this.$router.push(`/details/${id}`)
+      }
+    }
   }
 </script>

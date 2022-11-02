@@ -1,6 +1,6 @@
 <template>
     <a-row type="flex" justify="center">
-      <LisitingItem v-for="item in lists" :item="item" />
+      <LisitingItem v-for="item in lists" :item="item" :key="item.id" />
     </a-row>
 </template>
 

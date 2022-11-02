@@ -37,12 +37,13 @@
 </template>
 
 <script>
-  import Listings from '../components/Listings/index.vue';
+  import Listings from '../components/Listings/index.vue'
+  import listData from '../_dev/data'
 
   export default {
     data() {
       return {
-        lists: [{ img: "https://www.yourcabin.com/wp-content/uploads/2018/07/Breathtaking-view-of-Gatlinburg-and-the-Smoky-Mountains.jpg", title: "Listing 1", desc: "This is test desc for Listing 1" }, { img: "https://www.yourcabin.com/wp-content/uploads/2018/07/Breathtaking-view-of-Gatlinburg-and-the-Smoky-Mountains.jpg", title: "Listing 2", desc: "This is test desc for Listing 2" }]
+        lists: listData
       }
     }
   };
