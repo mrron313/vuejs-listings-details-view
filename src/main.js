@@ -13,6 +13,6 @@ app.use(router)
 
 app.use(VueGoogleMaps, {
   load: {
-    key: 'AIzaSyBeSXEpjR4eSAol-2HcUT_dMNXz-GGefuc',
+    key: 'AIzaSyAzVWwf0HUsIahwdbzRKKc5fVZs6bDhqBA',
   },
 }).mount('#app')

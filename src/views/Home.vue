@@ -2,13 +2,14 @@
   <!-- Search Fields -->
   <a-row type="flex" justify="center">
     <a-col :span="4" :order="1">
-      <a-input placeholder="Search.." />
+      <a-input placeholder="Search.." v-model="search" />
     </a-col>
     <a-col :span="4" :order="2">
       <a-select
         ref="select"
         style="width: 100%"
         placeholder="Type"
+        v-model="type"
       >
         <a-select-option value="jack">Jack</a-select-option>
         <a-select-option value="lucy">Lucy</a-select-option>
@@ -21,6 +22,7 @@
         ref="select"
         style="width: 100%"
         placeholder="Municipality"
+        v-model="municipality"
       >
         <a-select-option value="jack">Jack</a-select-option>
         <a-select-option value="lucy">Lucy</a-select-option>
@@ -29,7 +31,7 @@
       </a-select>
     </a-col>
   </a-row>
-
+  
   <a-divider orientation="left">Listings</a-divider>
 
   <!-- Listings -->
@@ -43,7 +45,9 @@
   export default {
     data() {
       return {
-        lists: listData
+        lists: listData,
+        search: '',
+        type: ''
       }
     }
   };
