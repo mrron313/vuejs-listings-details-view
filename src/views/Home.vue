@@ -13,7 +13,7 @@
         @change="handleTypeChange"
       >
         <a-select-option value="">All</a-select-option>
-        <a-select-option v-for="type in types['ENG']" :value="type">{{type}}</a-select-option>
+        <a-select-option v-for="type in types[store.lng]" :value="type">{{type}}</a-select-option>
       </a-select>
     </a-col>
     <a-col :span="4" :order="2">
@@ -45,10 +45,12 @@
 <script>
   import Listings from '../components/Listings/index.vue'
   import { List, TypeEng, Districts } from '../_dev/data'
+  import { store } from '../store'
 
   export default {
     data() {
       return {
+        store,
         filters: {
           search: '',
           type: '',
@@ -88,7 +90,7 @@
 
           if (this.filters.type === '') {
             typefound = true;
-          } else if (ls.Type['ENG'] === this.filters.type) {
+          } else if (ls.Type[store.lng] === this.filters.type) {
             typefound = true;
           } else {
             typefound = false;
