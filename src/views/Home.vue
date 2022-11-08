@@ -1,9 +1,6 @@
 <template>
   <!-- Search Fields -->
   <a-row type="flex" justify="center">
-    <a-col :span="4" :order="1">
-      <a-input placeholder="Search.." v-model="filters.search" />
-    </a-col>
     <a-col :span="4" :order="2">
       <a-select
         ref="select"
@@ -36,10 +33,10 @@
     </a-col>
   </a-row>
   
-  <a-divider orientation="left">Listings ({{ filteredLists.length === 0? 0 : limit }} data showed out of {{ filteredLists.length }}) </a-divider>
+  <a-divider orientation="left">Listings ({{ limit }} data showed out of {{ total }}) </a-divider>
 
   <!-- Listings -->
-  <Listings :lists="filteredLists.splice(0, this.limit)" />
+  <Listings :lists="filteredLists" />
 </template>
 
 <script>
@@ -56,9 +53,10 @@
           type: '',
           municipality: '',
         },
-        limit: 10,
+        limit: 0,
         lists: List,
         filteredLists: [],
+        total: 0,
         districts: Districts,
         types: {
           ENG: TypeEng,
@@ -99,7 +97,8 @@
           return munfound && typefound;
         });
 
-        this.filteredLists = fl;
+        this.total = fl.length;
+        this.filteredLists = fl.splice(0, this.limit);
       }
     },
   };
