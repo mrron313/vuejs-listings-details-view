@@ -25827,35 +25827,13 @@ const TypeUkr = [
   "Гонуссен"
 ];
 
+const Labels = {
+  Municipality: {
+    ENG: 'Municipality',
+    UKR: 'Муніципалітет'
+  }
+};
+
 const Districts = ['Winterthur', 'Uster', 'User', 'Stadt Zürich', 'Pfäffikon', 'Meilen', 'Horgen', 'Hinwil', 'Dietikon', 'Dielsdorf', 'Bülach', 'Andelfingen', 'Affoltern'];
 
 export { List, TypeEng, TypeUkr, Districts };
-
-
-// const updatedList = list.map((l, i) => {
-//   let newL = {
-//     ...l,
-//     AN: l['Association Name'],
-//     Phone: l['Phone Number'],
-//     NOM: l['Number of Members'],
-//     Description: {
-//       ENG: l['Description ENG'],
-//       UKR: l['Description UKR'],
-//     },
-//     Type: {
-//       ENG: l['Type ENG'],
-//       UKR: l['Type UKR'],
-//     },
-//     id: i+1,
-//   };
-//   delete newL['Description ENG'];
-//   delete newL['Description UKR'];
-//   delete newL['Type ENG'];
-//   delete newL['Type UKR'];
-//   delete newL['Association Name'];
-//   delete newL['Phone Number'];
-//   delete newL['Number of Members'];
-//   return newL;
-// });
-
-// console.log(updatedList)
