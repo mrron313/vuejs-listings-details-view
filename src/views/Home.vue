@@ -33,7 +33,7 @@
     </a-col>
   </a-row>
   
-  <a-divider orientation="left">Listings ({{ limit }} data showed out of {{ total }}) </a-divider>
+  <a-divider orientation="left">Listings ({{ showed }} data showed out of {{ total }}) </a-divider>
 
   <!-- Listings -->
   <Listings :lists="filteredLists" />
@@ -41,7 +41,7 @@
 
 <script>
   import Listings from '../components/Listings/index.vue'
-  import { List, TypeEng, Districts } from '../_dev/data'
+  import { List, TypeEng, TypeUkr, Districts } from '../_dev/data'
   import { store } from '../store'
 
   export default {
@@ -53,14 +53,15 @@
           type: '',
           municipality: '',
         },
-        limit: 0,
+        limit: 10,
         lists: List,
         filteredLists: [],
         total: 0,
+        showed: 0,
         districts: Districts,
         types: {
           ENG: TypeEng,
-          UKR: []
+          UKR: TypeUkr
         }
       }
     },
@@ -98,6 +99,7 @@
         });
 
         this.total = fl.length;
+        this.showed = this.limit <= fl.length? this.limit : fl.length;
         this.filteredLists = fl.splice(0, this.limit);
       }
     },

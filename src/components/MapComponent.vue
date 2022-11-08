@@ -1,12 +1,13 @@
 <template>
   <GMapMap
     :center="center"
-    :zoom="7"
+    :zoom="14"
     map-type-id="terrain"
     style="width: 450px; height: 450px"
     ref="myMapRef"
   >
     <GMapMarker
+      v-if="map !== null"
       :position="marker"
     />
   </GMapMap>
@@ -18,19 +19,29 @@ export default {
   props: ['address'],
   data() {
     return {
+      map: null,
       center: {lat: 51.093048, lng: 6.842120},
-      marker: {lat: 51.093048, lng: 6.842120}
+      marker: {}
+    }
+  },
+  methods: {
+    setMarker (val) {
+      console.log(this.$props.address, val)
+      this.marker = val;
+      this.center = val;
     }
   },
   mounted() {
-    this.$refs.myMapRef.$mapPromise.then((mapObject) => {
+    const address = this.$props.address;    
+    var self = this;
+
+    this.$refs.myMapRef.$mapPromise.then(function (mapObject) {
       var geocoder = new google.maps.Geocoder();
-      geocoder.geocode( { 'address': this.$props.address}, function(results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-          var latitude = results[0].geometry.location.lat();
-          var longitude = results[0].geometry.location.lng();
-          console.log(latitude, longitude)
-        } 
+      self.map = mapObject;
+      geocoder.geocode({ 'address': address }, function(results, status) {
+        return results
+      }).then(function (res) {
+        self.setMarker({lat: res.results[0].geometry.location.lat(), lng: res.results[0].geometry.location.lng()})
       });
     });
   },
