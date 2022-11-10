@@ -25831,9 +25831,45 @@ const Labels = {
   Municipality: {
     ENG: 'Municipality',
     UKR: 'Муніципалітет'
+  },
+  Type: {
+    ENG: 'Type',
+    UKR: 'Тип'
+  },
+  Address: {
+    ENG: 'Address',
+    UKR: 'Адреса'
+  },
+  Telephone: {
+    ENG: 'Telephone',
+    UKR: 'Телефон'
+  },
+  Website: {
+    ENG: 'Website',
+    UKR: 'Веб-сайт'
+  },
+  Members: {
+    ENG: 'Members',
+    UKR: 'Члени'
+  },
+  Details: {
+    ENG: 'Details',
+    UKR: 'Подробиці'
+  },
+  Search: {
+    ENG: 'Search',
+    UKR: 'Пошук'
+  },
+  'Developed By': {
+    ENG: 'Developed By',
+    UKR: 'Розроблено'
+  },
+  Limit: {
+    ENG: 'Limit',
+    UKR: 'обмеження' 
   }
 };
 
 const Districts = ['Winterthur', 'Uster', 'User', 'Stadt Zürich', 'Pfäffikon', 'Meilen', 'Horgen', 'Hinwil', 'Dietikon', 'Dielsdorf', 'Bülach', 'Andelfingen', 'Affoltern'];
 
-export { List, TypeEng, TypeUkr, Districts };
+export { List, TypeEng, TypeUkr, Districts, Labels };

@@ -5,7 +5,7 @@
       <a-select
         ref="select"
         style="width: 100%"
-        placeholder="Type"
+        :placeholder="labels.Type[store.lng]"
         v-model="filters.type"
         @change="handleTypeChange"
       >
@@ -17,7 +17,7 @@
       <a-select
         ref="select"
         style="width: 100%"
-        placeholder="Municipality"
+        :placeholder="labels.Municipality[store.lng]"
         v-model="filters.municipality"
         @change="handleMunicipalityChange"
       >
@@ -26,14 +26,14 @@
       </a-select>
     </a-col>
     <a-col :order="3">
-      <a-input placeholder="limit" :value="limit" v-model="limit" @change="handleLimitChange" />
+      <a-input :placeholder="labels.Limit[store.lng]" v-model:value="limit" />
     </a-col>
     <a-col :order="4">
-      <a-button @click="handleSearch">Search</a-button>  
+      <a-button @click="handleSearch">{{ labels.Search[store.lng] }}</a-button>  
     </a-col>
   </a-row>
   
-  <a-divider orientation="left">Listings ({{ showed }} data showed out of {{ total }}) </a-divider>
+  <a-divider orientation="left">({{ showed }} data showed out of {{ total }}) </a-divider>
 
   <!-- Listings -->
   <Listings :lists="filteredLists" />
@@ -41,7 +41,7 @@
 
 <script>
   import Listings from '../components/Listings/index.vue'
-  import { List, TypeEng, TypeUkr, Districts } from '../_dev/data'
+  import { List, TypeEng, TypeUkr, Districts, Labels } from '../_dev/data'
   import { store } from '../store'
 
   export default {
@@ -59,6 +59,7 @@
         total: 0,
         showed: 0,
         districts: Districts,
+        labels: Labels,
         types: {
           ENG: TypeEng,
           UKR: TypeUkr
@@ -72,8 +73,9 @@
       handleTypeChange: function (value) {
         this.filters.type = value;
       },
-      handleLimitChange: function (e) {
-        this.limit = e.target.value;
+      handleLimitChange: function (value) {
+        console.log(value);
+        this.limit = value;
       },
       handleSearch: function () {
         let fl = this.lists.filter(ls => {

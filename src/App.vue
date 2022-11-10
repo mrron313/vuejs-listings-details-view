@@ -16,18 +16,20 @@
         </div>
       </a-layout-content>
       <a-layout-footer :style="{ textAlign: 'center' }">
-        Developed By Arif
+        {{ labels['Developed By'][store.lng] }} Arif
       </a-layout-footer>
     </a-layout>
 </template>
 
 <script>
   import { store } from './store.js'
+  import { Labels } from './_dev/data'
 
   export default {
     data() {
       return {
-        store
+        store,
+        labels: Labels
       }
     },
     methods: {
