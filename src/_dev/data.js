@@ -25828,9 +25828,9 @@ const TypeUkr = [
 ];
 
 const Labels = {
-  Municipality: {
-    ENG: 'Municipality',
-    UKR: 'Муніципалітет'
+  District: {
+    ENG: 'District',
+    UKR: 'район'
   },
   Type: {
     ENG: 'Type',
@@ -25864,9 +25864,13 @@ const Labels = {
     ENG: 'Developed By',
     UKR: 'Розроблено'
   },
-  Limit: {
-    ENG: 'Limit',
-    UKR: 'обмеження' 
+  Title: {
+    ENG: 'App Title',
+    UKR: 'Назва програми' 
+  },
+  DataShowed: {
+    ENG: 'data showed out of',
+    UKR: 'Дані відображаються з'
   }
 };
 

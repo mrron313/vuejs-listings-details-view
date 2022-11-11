@@ -3,7 +3,7 @@
     :center="center"
     :zoom="14"
     map-type-id="terrain"
-    style="width: 450px; height: 450px"
+    style="width: 100%; height: 450px"
     ref="myMapRef"
   >
     <GMapMarker
@@ -26,7 +26,6 @@ export default {
   },
   methods: {
     setMarker (val) {
-      console.log(this.$props.address, val)
       this.marker = val;
       this.center = val;
     }

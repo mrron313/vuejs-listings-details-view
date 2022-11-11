@@ -1,7 +1,7 @@
 <template>
     <a-layout :style="{ minHeight: '100vh', height : '100%', }">
       <a-layout-header :style="{ position: 'fixed', zIndex: 1, width: '100%', color: '#fff', display: 'flex', 'justify-content': 'space-between', 'align-items': 'center' }">
-        <router-link to="/"><h3 :style="{  fontSize: '22px', color: '#fff', display: 'inline-block' }">App Title</h3></router-link>
+        <router-link to="/"><h3 :style="{  fontSize: '22px', color: '#fff', display: 'inline-block' }">{{ labels.Title[store.lng] }}</h3></router-link>
         <a-select
           @change="handleLanguageChange"
           v-model:value="store.lng"
@@ -16,7 +16,7 @@
         </div>
       </a-layout-content>
       <a-layout-footer :style="{ textAlign: 'center' }">
-        {{ labels['Developed By'][store.lng] }} Arif
+        ---------
       </a-layout-footer>
     </a-layout>
 </template>

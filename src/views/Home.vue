@@ -17,7 +17,7 @@
       <a-select
         ref="select"
         style="width: 100%"
-        :placeholder="labels.Municipality[store.lng]"
+        :placeholder="labels.District[store.lng]"
         v-model="filters.municipality"
         @change="handleMunicipalityChange"
       >
@@ -25,15 +25,12 @@
         <a-select-option v-for="district in districts" :value="district">{{district}}</a-select-option>
       </a-select>
     </a-col>
-    <a-col :order="3">
-      <a-input :placeholder="labels.Limit[store.lng]" v-model:value="limit" />
-    </a-col>
     <a-col :order="4">
       <a-button @click="handleSearch">{{ labels.Search[store.lng] }}</a-button>  
     </a-col>
   </a-row>
   
-  <a-divider orientation="left">({{ showed }} data showed out of {{ total }}) </a-divider>
+  <a-divider orientation="left">({{ showed }} {{ labels.DataShowed[store.lng] }} {{ total }}) </a-divider>
 
   <!-- Listings -->
   <Listings :lists="filteredLists" />
@@ -53,11 +50,10 @@
           type: '',
           municipality: '',
         },
-        limit: 10,
         lists: List,
-        filteredLists: [],
-        total: 0,
+        filteredLists: List,
         showed: 0,
+        total: List.length,
         districts: Districts,
         labels: Labels,
         types: {
@@ -100,9 +96,8 @@
           return munfound && typefound;
         });
 
-        this.total = fl.length;
-        this.showed = this.limit <= fl.length? this.limit : fl.length;
-        this.filteredLists = fl.splice(0, this.limit);
+        this.showed = fl.length;
+        this.filteredLists = fl;
       }
     },
   };
