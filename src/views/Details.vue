@@ -1,7 +1,7 @@
 <template>
   <a-divider orientation="left">{{ labels.Details[store.lng] }}</a-divider>
 
-  <a-row type="flex" justify="center" :style="{marginTop: '20px', gap: '40px'}">
+  <a-row type="flex" justify="center" :style="{marginTop: '20px', gap: '40px', padding: '20px'}">
     <a-col flex="400px">
       <MapComponent :address='this.details.Address' />
     </a-col>
