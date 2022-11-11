@@ -1,6 +1,6 @@
 <template>
   <!-- Search Fields -->
-  <a-row type="flex" justify="center" align="center">
+  <a-row type="flex" justify="center" align="center" :style="{ display: 'flex', gap: '10px' }">
     <a-col :style="{ width: '200px' }" :order="1">
       <a-select
         ref="select"
