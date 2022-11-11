@@ -1,7 +1,7 @@
 <template>
   <!-- Search Fields -->
-  <a-row type="flex" justify="center">
-    <a-col :span="4" :order="2">
+  <a-row type="flex" justify="center" align="center">
+    <a-col :style="{ width: '200px' }" :order="1">
       <a-select
         ref="select"
         style="width: 100%"
@@ -9,11 +9,11 @@
         v-model="filters.type"
         @change="handleTypeChange"
       >
-        <a-select-option value="">All</a-select-option>
+        <a-select-option value="">{{ labels.All[store.lng] }}</a-select-option>
         <a-select-option v-for="type in types[store.lng]" :value="type">{{type}}</a-select-option>
       </a-select>
     </a-col>
-    <a-col :span="4" :order="2">
+    <a-col :style="{ width: '200px' }" :order="2">
       <a-select
         ref="select"
         style="width: 100%"
@@ -21,11 +21,11 @@
         v-model="filters.municipality"
         @change="handleMunicipalityChange"
       >
-        <a-select-option value="">All</a-select-option>
+        <a-select-option value="">{{ labels.All[store.lng] }}</a-select-option>
         <a-select-option v-for="district in districts" :value="district">{{district}}</a-select-option>
       </a-select>
     </a-col>
-    <a-col :order="4">
+    <a-col :style="{ width: '200px' }" :order="3">
       <a-button @click="handleSearch">{{ labels.Search[store.lng] }}</a-button>  
     </a-col>
   </a-row>
@@ -33,8 +33,20 @@
   <a-divider orientation="left">({{ showed }} {{ labels.DataShowed[store.lng] }} {{ total }}) </a-divider>
 
   <!-- Listings -->
-  <Listings :lists="filteredLists" />
+  <div v-if="loading" class="spinner-box">
+    <a-spin />
+  </div>
+  <Listings v-if="!loading" :lists="filteredLists" />
 </template>
+
+<style scoped>
+  .spinner-box {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 30px 50px;
+    margin: 20px 0;
+  }
+</style>
 
 <script>
   import Listings from '../components/Listings/index.vue'
@@ -52,7 +64,8 @@
         },
         lists: List,
         filteredLists: List,
-        showed: 0,
+        loading: false,
+        showed: List.length,
         total: List.length,
         districts: Districts,
         labels: Labels,
@@ -74,6 +87,7 @@
         this.limit = value;
       },
       handleSearch: function () {
+        this.loading = true;
         let fl = this.lists.filter(ls => {
           let munfound, typefound;
 
@@ -96,8 +110,12 @@
           return munfound && typefound;
         });
 
-        this.showed = fl.length;
-        this.filteredLists = fl;
+        setTimeout(() => {
+          this.showed = fl.length;
+          this.filteredLists = fl;
+
+          this.loading = false;
+        }, 1500);
       }
     },
   };

@@ -25871,6 +25871,10 @@ const Labels = {
   DataShowed: {
     ENG: 'data showed out of',
     UKR: 'Дані відображаються з'
+  },
+  All: {
+    ENG: 'All',
+    UKR: 'все'
   }
 };
 

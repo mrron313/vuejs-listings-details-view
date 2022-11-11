@@ -11,11 +11,11 @@
         <h4 :style="{ fontSize: '22px', lineHeight: '22px' }">{{ details?.AN }}</h4>
         {{ details?.Description[store.lng] }}
 
-        <div :style="{ marginTop: '15px' }">
-          <div :style="{ display: 'flex', justifyContent: 'space-between' }"><strong>{{ labels.Website[store.lng] }}: </strong><a :href="details.Webseite" target="_blank">{{ details.Webseite }}</a> </div>
-          <div :style="{ display: 'flex', justifyContent: 'space-between' }"><strong>{{ labels.Telephone[store.lng] }}: </strong><span>{{ details.Phone }}</span> </div>
-          <div :style="{ display: 'flex', justifyContent: 'space-between' }"><strong>{{ labels.Members[store.lng] }}: </strong><span>{{ details.NOM }}</span> </div>
-          <div :style="{ display: 'flex', justifyContent: 'space-between' }"><strong>{{ labels.Address[store.lng] }}: </strong><span>{{ details.Address }}</span> </div>
+        <div :style="{ marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '5px', fontSize: '15px' }">
+          <a-row justify="space-between"><a-col><strong>{{ labels.Website[store.lng] }}: </strong></a-col><a-col><a :href="details.Webseite" target="_blank">{{ details.Webseite }}</a></a-col></a-row>
+          <a-row justify="space-between"><a-col><strong>{{ labels.Telephone[store.lng] }}: </strong></a-col><a-col><span>{{ details.Phone }}</span> </a-col></a-row>
+          <a-row justify="space-between"><a-col><strong>{{ labels.Members[store.lng] }}: </strong></a-col><a-col><span>{{ details.NOM }}</span> </a-col></a-row>
+          <a-row justify="space-between"><a-col><strong>{{ labels.Address[store.lng] }}: </strong></a-col><a-col><span>{{ details.Address }}</span> </a-col></a-row>
         </div>
       </div>
     </a-col>

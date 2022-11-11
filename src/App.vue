@@ -10,8 +10,8 @@
           <a-select-option value="UKR">UKR</a-select-option>
         </a-select>
       </a-layout-header>
-      <a-layout-content :style="{ padding: '0 50px', marginTop: '64px',  background: '#fff', height: '100%',}">
-        <div :style="{ padding: '24px', }">
+      <a-layout-content :style="{ marginTop: '64px',  background: '#fff', height: '100%',}">
+        <div :style="{ padding: '24px 0px', }">
           <router-view></router-view>
         </div>
       </a-layout-content>
