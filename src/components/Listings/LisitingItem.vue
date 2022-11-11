@@ -1,6 +1,6 @@
 <template>
   <a-col flex="'200px'">
-    <a-card hoverable style="max-width: 300px; margin: 20px" @click="goToDetails(item.id)">
+    <a-card hoverable style="max-width: 300px; minHeight: 120px; margin: 20px" @click="goToDetails(item.id)">
       <a-card-meta :title="item.AN">
         <template #description>{{ this.shortentDescription(item.Description[store.lng]) }}</template>
       </a-card-meta>
