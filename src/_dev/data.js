@@ -25865,8 +25865,8 @@ const Labels = {
     UKR: 'Розроблено'
   },
   Title: {
-    ENG: 'App Title',
-    UKR: 'Назва програми' 
+    ENG: 'Association Finder',
+    UKR: 'Пошук асоціацій' 
   },
   DataShowed: {
     ENG: 'data showed out of',
