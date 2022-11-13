@@ -5748,7 +5748,7 @@ const List = [
   {
       "Address": "Im Städtli 9, 8606 Greifensee",
       "Webseite": "http://www.claro.ch",
-      "District": "User",
+      "District": "Uster",
       "AN": "claro Weltladen Greifensee",
       "Phone": "044 840 26 91",
       "NOM": "1 - 50",
@@ -25860,17 +25860,13 @@ const Labels = {
     ENG: 'Search',
     UKR: 'Пошук'
   },
-  'Developed By': {
-    ENG: 'Developed By',
-    UKR: 'Розроблено'
-  },
   Title: {
     ENG: 'Association Finder',
     UKR: 'Пошук асоціацій' 
   },
   DataShowed: {
-    ENG: 'data showed out of',
-    UKR: 'Дані відображаються з'
+    ENG: 'results shown out of',
+    UKR: 'результати, показані з'
   },
   All: {
     ENG: 'All',
@@ -25878,6 +25874,6 @@ const Labels = {
   }
 };
 
-const Districts = ['Winterthur', 'Uster', 'User', 'Stadt Zürich', 'Pfäffikon', 'Meilen', 'Horgen', 'Hinwil', 'Dietikon', 'Dielsdorf', 'Bülach', 'Andelfingen', 'Affoltern'];
+const Districts = ['Winterthur', 'Uster', 'Stadt Zürich', 'Pfäffikon', 'Meilen', 'Horgen', 'Hinwil', 'Dietikon', 'Dielsdorf', 'Bülach', 'Andelfingen', 'Affoltern'];
 
 export { List, TypeEng, TypeUkr, Districts, Labels };
