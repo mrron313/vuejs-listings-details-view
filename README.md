@@ -1,9 +1,12 @@
 # vue-listings-with-search-and-map
 
-Stack: Vue3, Google Map API
-Demo Link: https://fancy-lamington-629ed4.netlify.app/
+## Stack: Vue3, Google Map API
 
-Developed for a client. Here, user can search and click to particular listing to view the details. Also, it is responsive to all devices.
+## Demo Link: https://fancy-lamington-629ed4.netlify.app/
+
+# Developed for a client. Here, user can search and click to particular listing to view the details. Also, it is responsive to all devices.
+
+
 
 ## Project Setup
 
